@@ -1,0 +1,397 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Santa Marta D.T. y C.",
+        "COUNT_id_de_caso": "57"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1990433,
+          11.2407904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Sucre",
+        "COUNT_id_de_caso": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.3977814,
+          9.3047199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Bolívar",
+        "COUNT_id_de_caso": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.7546692,
+          9.2420197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Magdalena",
+        "COUNT_id_de_caso": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.366555,
+          10.1287919
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Risaralda",
+        "COUNT_id_de_caso": "60"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6961136,
+          4.8133302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Tolima",
+        "COUNT_id_de_caso": "23"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2322235,
+          4.43889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Huila",
+        "COUNT_id_de_caso": "52"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2818909,
+          2.9273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Chocó",
+        "COUNT_id_de_caso": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6583481,
+          5.6918802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Bogotá D.C.",
+        "COUNT_id_de_caso": "1186"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.081749,
+          4.6097102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Cartagena D.T. y C",
+        "COUNT_id_de_caso": "114"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5144424,
+          10.3997202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Cauca",
+        "COUNT_id_de_caso": "19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6131592,
+          2.43823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Caldas",
+        "COUNT_id_de_caso": "34"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6356888,
+          6.0910602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "San Andrés",
+        "COUNT_id_de_caso": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.7005615,
+          12.5847197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Quindío",
+        "COUNT_id_de_caso": "47"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6811066,
+          4.5338898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Boyacá",
+        "COUNT_id_de_caso": "31"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.3677826,
+          5.5352802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Santander",
+        "COUNT_id_de_caso": "29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.1197968,
+          7.1253901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Casanare",
+        "COUNT_id_de_caso": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.3958588,
+          5.33775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Meta",
+        "COUNT_id_de_caso": "21"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7579727,
+          3.9869499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Cundinamarca",
+        "COUNT_id_de_caso": "112"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.2119522,
+          4.7163801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Cesar",
+        "COUNT_id_de_caso": "32"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.2355804,
+          10.0367203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Norte de Santander",
+        "COUNT_id_de_caso": "43"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.50782,
+          7.8939099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Atlántico",
+        "COUNT_id_de_caso": "22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.994167,
+          10.691823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Córdoba",
+        "COUNT_id_de_caso": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8814316,
+          8.7479801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Valle del Cauca",
+        "COUNT_id_de_caso": "489"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.5224991,
+          3.4372201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Nariño",
+        "COUNT_id_de_caso": "38"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.2811127,
+          1.2136101
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Barranquilla D.E.",
+        "COUNT_id_de_caso": "66"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.7813187,
+          10.9685402
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "La Guajira",
+        "COUNT_id_de_caso": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.9072189,
+          11.5444403
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "departamento": "Antioquia",
+        "COUNT_id_de_caso": "260"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.563591,
+          6.2518401
+        ]
+      }
+    }
+  ]
+}
