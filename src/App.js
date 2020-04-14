@@ -1,42 +1,54 @@
 import React from 'react';
 import './App.css';
-import { Map, TileLayer, Marker, Popup, CircleMarker } from 'react-leaflet'
-import * as parkData from "./data/data.json";
+import { Map, TileLayer, CircleMarker, Tooltip } from 'react-leaflet'
 import { latLang }  from './data/latLang';
 import axios from 'axios';
+import useSwr from "swr";
 
+  const fetcher = (...args) => fetch(...args).then(response => response.json());
 
-  const App = () => {
+  export default function App() {
     
     const [activePark, setActivePark] = React.useState(null);
 
-    // const skater = new Icon({
-    //   iconUrl: "/skateboarding.svg",
-    //   iconSize: [25, 25]
-    // });
-
-    // http://covid19-us-api.herokuapp.com/county
+    const url = 'https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=departamento,COUNT(id_de_caso)&$group=departamento';
+    const { data, error } = useSwr(url, {fetcher});
 
     
-    // const componentDidMount = () => {
-    //   fetch('https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=departamento,COUNT(id_de_caso)&$group=departamento')
-    //   .then(res => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     debugger;
-    //     // this.setState({ contacts: data })
-    //   })
-    //   .catch(console.log)
-    // }
+    if ( error ) return;
+
+    let geoJson = {}
+    let feature = []
+    if(data) {
+      let name = '';
+      geoJson = {
+        type: 'FeatureCollection',
+        features: data.map((departamento = {}) => {
+          name = departamento.departamento;          
+          return {
+            type: 'Feature',
+            properties: {
+              ...departamento,
+            },
+            geometry: {
+              type: 'Point',
+              coordinates: latLang[name]
+            }
+          }
+        })
+      }
+      feature = geoJson.features;
+    }
+    
+    // http://covid19-us-api.herokuapp.com/county
+
 
     async function mapEffect() {
       let response;
-      
       // https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=departamento,COUNT(id_de_caso)&$group=departamento
       try {
         response = await axios.get('https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=departamento,COUNT(id_de_caso)&$group=departamento');
         // response = await axios.get('https://www.datos.gov.co/resource/gt2j-8ykr.json?&$limit=50000');
-        console.log(response);
         
       } catch(e) {
         console.log(`Error realizando la petición: ${e.message}`, e);
@@ -47,8 +59,6 @@ import axios from 'axios';
       const hasData = Array.isArray(data) && data.length > 0;
 
       if ( !hasData ) return;
-      // const lgnLan = latLang
-      // debugger
       const latLang = {
         'Santa Marta D.T. y C.':	[-74.1990433, 11.2407904],
         Sucre: [-75.3977814, 9.3047199],
@@ -91,7 +101,6 @@ import axios from 'axios';
             },
             geometry: {
               type: 'Point',
-              // coordinates: []
               coordinates: latLang[name]
             }
           }
@@ -99,26 +108,34 @@ import axios from 'axios';
       }
     }
 
-    mapEffect();
-    // componentDidMount();
-
     return (
       <Map center={[4.624335, -74.063644]} zoom={6}>
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png.png"
-          // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
 
-        { parkData.features.map((city) => {
+        { feature.map((city, k) => {
           return(
             <CircleMarker
+                key = {k}
                 center = {[city.geometry.coordinates[1], city.geometry.coordinates[0]]}
                 fillOpacity = {0.5}
                 stroke = {false}
                 color = {"#E60000"}
-                setContent = {"H"}
-              />)
+              >
+                <Tooltip direction="right" offset={[-8, -2]} opacity={0.5}>
+                  <span>
+                    <span>
+                      <h2>{city.properties.departamento}</h2>
+                      <ul>
+                        <li><strong>Departamento:</strong> {city.properties.COUNT_id_de_caso}</li>
+                      </ul>
+                    </span>
+                  </span>
+                </Tooltip>
+            </CircleMarker>
+          );
         })}
 
         {/* Arreglo en el archivo de data */}
@@ -156,4 +173,4 @@ import axios from 'axios';
     );
 }
 
-export default App;
+// export default App;
