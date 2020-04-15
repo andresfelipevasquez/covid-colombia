@@ -9,8 +9,6 @@ import useSwr from "swr";
 
   export default function App() {
     
-    const [activePark, setActivePark] = React.useState(null);
-
     const url = 'https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=departamento,COUNT(id_de_caso)&$group=departamento';
     const { data, error } = useSwr(url, {fetcher});
 
@@ -45,7 +43,6 @@ import useSwr from "swr";
 
     async function mapEffect() {
       let response;
-      // https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=departamento,COUNT(id_de_caso)&$group=departamento
       try {
         response = await axios.get('https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=departamento,COUNT(id_de_caso)&$group=departamento');
         // response = await axios.get('https://www.datos.gov.co/resource/gt2j-8ykr.json?&$limit=50000');
@@ -123,53 +120,21 @@ import useSwr from "swr";
                 fillOpacity = {0.5}
                 stroke = {false}
                 color = {"#E60000"}
+                // radius={50 * Math.log(city.properties.COUNT_id_de_caso / 1000)}
+                className = {"corona-app-marker"}
               >
                 <Tooltip direction="right" offset={[-8, -2]} opacity={0.5}>
-                  <span>
-                    <span>
+                  <span className="corona-app-tooltip">
                       <h2>{city.properties.departamento}</h2>
                       <ul>
                         <li><strong>Departamento:</strong> {city.properties.COUNT_id_de_caso}</li>
                       </ul>
-                    </span>
                   </span>
                 </Tooltip>
             </CircleMarker>
           );
         })}
-
-        {/* Arreglo en el archivo de data */}
-        {/* {parkData.features.map(park => (
-          <Marker
-            key={park.properties.PARK_ID}
-            position={[
-              park.geometry.coordinates[1],
-              park.geometry.coordinates[0]
-            ]}
-            onClick={() => {
-              setActivePark(park);
-            }}
-          />
-        ))}
-
-        {activePark && (
-            <Popup
-              position={[
-                activePark.geometry.coordinates[1],
-                activePark.geometry.coordinates[0]
-              ]}
-              onClose={() => {
-                setActivePark(null);
-              }}
-            >
-              <div>
-                <h2>{activePark.properties.NAME}</h2>
-                <p>{activePark.properties.DESCRIPTIO}</p>
-              </div>
-            </Popup>
-          )} */}
       </Map>
-      
     );
 }
 
