@@ -20,7 +20,7 @@ const Map = () => {
       geoJson = {
         type: 'FeatureCollection',
         features: data.map((departamento = {}) => {
-          name = departamento.departamento;          
+          name = (departamento.departamento).toUpperCase();
           return {
             type: 'Feature',
             properties: {
@@ -33,10 +33,11 @@ const Map = () => {
           }
         })
       }
-      feature = geoJson.features;
+      feature = geoJson.features;      
     }
     
     return (
+      <div className="map-container">
         <L center={[4.624335, -74.063644]} zoom={6}>
           <TileLayer
             url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png.png"
@@ -66,6 +67,7 @@ const Map = () => {
             );
           })}
         </L>
+      </div>
     );
 }
 
