@@ -1,7 +1,7 @@
 import React from 'react';
 import { Map as L, TileLayer, CircleMarker, Tooltip } from 'react-leaflet';
 import useSwr from "swr";
-import { latLang }  from '../data/latLang';
+import { latLang }  from '../data/coordinates';
 
 
 const fetcher = (...args) => fetch(...args).then(response => response.json());
@@ -11,15 +11,18 @@ const Map = () => {
     const url = 'https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=departamento,COUNT(id_de_caso)&$group=departamento';
     const { data, error } = useSwr(url, {fetcher});
 
-    if ( error ) return;
+    if (error) return <div>failed to load</div>
+      
 
-    let geoJson = {}
-    let feature = []
-    if(data) {
+    let geoJson = {};
+    let feature = [];
+    // let casosTotales = 0;
+    if(data) {      
       let name = '';
       geoJson = {
         type: 'FeatureCollection',
         features: data.map((departamento = {}) => {
+          // casosTotales = casosTotales + Number(departamento.COUNT_id_de_caso);
           name = (departamento.departamento).toUpperCase();
           return {
             type: 'Feature',
@@ -38,7 +41,7 @@ const Map = () => {
     
     return (
       <div className="map-container">
-        <L center={[4.624335, -74.063644]} zoom={6}>
+        <L center={[4.624335, -74.063644]} zoom={5}>
           <TileLayer
             url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png.png"
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -59,7 +62,7 @@ const Map = () => {
                     <span className="corona-app-tooltip">
                         <h2>{city.properties.departamento}</h2>
                         <ul>
-                          <li><strong>Departamento:</strong> {city.properties.COUNT_id_de_caso}</li>
+                          <li><strong>Casos:</strong> {city.properties.COUNT_id_de_caso}</li>
                         </ul>
                     </span>
                   </Tooltip>
