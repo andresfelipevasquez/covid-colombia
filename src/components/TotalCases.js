@@ -1,6 +1,7 @@
 import React from 'react';
 import useSwr from "swr";
 import Card from './Card';
+import TotalCasesByGender from './TotalCasesByGender';
 
 
 const fetcher = async (...args) => {
@@ -36,7 +37,10 @@ const TotalCases = () => {
     }
 
     return(
+        <div style={{display: "flex"}}>
             <Card data={{ label: 'Casos confirmados', value: totalCases}}></Card>
+            <TotalCasesByGender data={{female: totalCasesByGender['F'], male: totalCasesByGender['M']}}></TotalCasesByGender>
+        </div>
     )
 }
 
