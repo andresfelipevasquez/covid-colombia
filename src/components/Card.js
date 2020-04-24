@@ -9,12 +9,9 @@ const Card = ({data}) => {
         margin: "1rem 2rem 1rem 2rem",
         textAlign: "center",
         color: "#aeaeae",
-        fontSize: "2.25vw",
+        fontSize: "2.0vw",
         fontWeight: "500"
-    }
-
-    console.log(data);
-    
+    }    
 
     return(
         <div className="card-sumary" style={cardStyle}>

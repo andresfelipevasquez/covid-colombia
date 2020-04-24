@@ -1,6 +1,6 @@
 import React from 'react';
 import TotalCases from './TotalCases';
-import Card from './Card';
+import PatientsStatus from './PatientsStatus';
 
 
 const Sumary = () => {    
@@ -8,10 +8,7 @@ const Sumary = () => {
     return(
         <div style={{display:"flex", justifyContent: "center"}}>
             <TotalCases></TotalCases>
-            {/* <Card value1={{hola: "hola"}}></Card>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card> */}
+            <PatientsStatus></PatientsStatus>         
         </div>
     )
 }

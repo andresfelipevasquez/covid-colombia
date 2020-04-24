@@ -22,7 +22,7 @@ const TotalCases = () => {
     
     if (error) return <div>failed to load</div>
     
-    if(data){
+    if(data) {
         let gender = '';
         let totalCasesTemp = 0;
         data.map(cases => { 
