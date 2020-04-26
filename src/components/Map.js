@@ -10,7 +10,7 @@ const fetcher = (...args) => fetch(...args).then(response => response.json());
 
 const Map = () => {
 
-    const url = 'https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=departamento,COUNT(id_de_caso)&$group=departamento';
+    const url = 'https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=departamento,COUNT(id_de_caso)&$group=departamento&$order=COUNT_id_de_caso DESC';
     const { data, error } = useSwr(url, {fetcher});
 
     if (error) return <div>failed to load</div>

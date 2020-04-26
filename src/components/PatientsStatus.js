@@ -12,8 +12,6 @@ const fetcher = async (...args) => {
 const PatientsStatus = () => {
     const url_status = "https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=atenci_n,COUNT(atenci_n)&$group=atenci_n";
     const {data, error} = useSwr(url_status, {fetcher});
-    // let totalRecuperate = 0;
-    // let totalDeceased = 0;
     let statusData = {}
     const labelRecuperate = 'RECUPERADO';
     const labelDeceased = 'FALLECIDO';

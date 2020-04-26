@@ -13,14 +13,32 @@
 .departmanet-table {
   margin-right: 2rem;  
   width: 30% !important;
+  background-color: #010915 !important;
+  padding: 0 0.5rem 0 0.5rem;
 }
 
 .MuiTableCell-root {
   font-size: 0.9vw !important;
+  color: white !important;
 }
 
 .MuiTableContainer-root {
   width: 30%;
+}
+
+.MuiTableContainer-root::-webkit-scrollbar {
+  width: 4px;
+  background-color: #404040
+}
+
+.MuiTableContainer-root::-webkit-scrollbar-thumb {
+  background-color: rgb(129, 123, 123);
+}
+
+.MuiTableCell-stickyHeader {
+  background-color: #010915 !important;
+  border-bottom: none !important;
+  font-weight: 700 !important;
 }
 
 .leaflet-container {
