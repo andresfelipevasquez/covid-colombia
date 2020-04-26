@@ -1,7 +1,9 @@
 import React from 'react';
-import { Map as L, TileLayer, CircleMarker, Tooltip } from 'react-leaflet';
 import useSwr from "swr";
 import { latLang }  from '../data/coordinates';
+import DeparmentTable from './DepartmentTable';
+import { Map as L, TileLayer, CircleMarker, Tooltip } from 'react-leaflet';
+
 
 
 const fetcher = (...args) => fetch(...args).then(response => response.json());
@@ -17,7 +19,7 @@ const Map = () => {
     let geoJson = {};
     let feature = [];
     // let casosTotales = 0;
-    if(data) {      
+    if(data) {
       let name = '';
       geoJson = {
         type: 'FeatureCollection',
@@ -41,6 +43,7 @@ const Map = () => {
     
     return (
       <div className="map-container">
+        <DeparmentTable rows={data}></DeparmentTable>
         <L center={[4.624335, -74.063644]} zoom={5}>
           <TileLayer
             url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png.png"
