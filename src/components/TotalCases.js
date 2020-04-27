@@ -2,6 +2,7 @@ import React from 'react';
 import useSwr from "swr";
 import Card from './Card';
 import TotalCasesByGender from './TotalCasesByGender';
+import ToFormatNumber from '../services/ToFormatNumber';
 
 
 const fetcher = async (...args) => {
@@ -38,8 +39,8 @@ const TotalCases = () => {
 
     return(
         <div style={{display: "flex"}}>
-            <Card data={{ label: 'Casos confirmados', value: totalCases}}></Card>
-            <TotalCasesByGender data={{female: totalCasesByGender['F'], male: totalCasesByGender['M']}}></TotalCasesByGender>
+            <Card data={{ label: 'Casos confirmados', value: ToFormatNumber(totalCases)}}></Card>
+            <TotalCasesByGender data={{female: ToFormatNumber(totalCasesByGender['F']), male: ToFormatNumber(totalCasesByGender['M'])}}></TotalCasesByGender>
         </div>
     )
 }

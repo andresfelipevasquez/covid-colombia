@@ -18,13 +18,11 @@ const Map = () => {
 
     let geoJson = {};
     let feature = [];
-    // let casosTotales = 0;
     if(data) {
       let name = '';
       geoJson = {
         type: 'FeatureCollection',
         features: data.map((departamento = {}) => {
-          // casosTotales = casosTotales + Number(departamento.COUNT_id_de_caso);
           name = (departamento.departamento).toUpperCase();
           return {
             type: 'Feature',

@@ -1,6 +1,7 @@
 import React from 'react'
 import useSwr from "swr";
 import Card from './Card';
+import ToFormatNumber from '../services/ToFormatNumber';
 
 
 const fetcher = async (...args) => {
@@ -28,15 +29,13 @@ const PatientsStatus = () => {
                 statusData[labelDeceased] = items.COUNT_atenci_n;
             }
             return statusData;
-        });
-
-        console.log("Estados: ", statusData);        
+        }); 
     }
 
     return(
         <div style={{display: "flex"}}>
-            <Card data={{ label: 'Recuperados', value: statusData[labelRecuperate]}}></Card>
-            <Card data={{ label: 'Fallecidos', value: statusData[labelDeceased]}}></Card>
+            <Card data={{ label: 'Recuperados', value: ToFormatNumber(statusData[labelRecuperate])}}></Card>
+            <Card data={{ label: 'Fallecidos', value: ToFormatNumber(statusData[labelDeceased])}}></Card>
         </div>
     );
 
