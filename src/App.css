@@ -1,6 +1,7 @@
 .app-container {
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
+  height: 100%;
   background-color: #19202a;
 }
 
@@ -39,6 +40,10 @@
   background-color: #010915 !important;
   border-bottom: none !important;
   font-weight: 700 !important;
+}
+
+.chart-cases-by-days {
+  margin: 2rem;
 }
 
 .leaflet-container {

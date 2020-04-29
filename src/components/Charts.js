@@ -1,39 +1,70 @@
 import React from 'react';
+import useSwr from "swr";
 import Chart from 'react-google-charts';
+
+const fetcher = async (...args) => {
+  const res = await fetch(...args);
+  const response = await res.json();    
+  return response;
+};
 
 const Charts = () => {
 
-    // https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=fecha_reporte_web,COUNT(id_de_caso)&$group=fecha_reporte_web&$order=fecha_reporte_web%20DESC
-    const data = [
-        ['x', 'dogs', 'cats'],
-        [0, 0, 0],
-        [1, 10, 5],
-        [2, 23, 15],
-        [3, 17, 9],
-        [4, 18, 10],
-        [5, 9, 5],
-        [6, 11, 3],
-        [7, 27, 19],
-      ];
+    const url_total_cases = "https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=fecha_reporte_web,COUNT(id_de_caso)&$group=fecha_reporte_web&$order=fecha_reporte_web%20ASC";
+    const {data, error} = useSwr(url_total_cases, {fetcher});
 
+    if (error) return <div>failed to load</div>
+
+    let casesByDay =[]
+    if(data) {
+      casesByDay.push([{ type: 'date', label: 'Day' }, 'Casos por día']);
+      let sumTotalCasesByDay = 0;
+      data.map(item =>{
+        sumTotalCasesByDay += Number(item.COUNT_id_de_caso);
+        casesByDay.push([new Date(item.fecha_reporte_web), sumTotalCasesByDay]);
+        return casesByDay;
+      });
+    }
+  
     return (
-        <div className={"my-pretty-chart-container"}>
+        <div className={"chart-cases-by-days"}>
           <Chart
             chartType="LineChart"
             loader={<div>Loading Chart</div>}
-            data={data}
-            width="50%"
-            height="200px"          
+            data={casesByDay}
+            width="700px"
+            height="400px"          
             options={{
                 hAxis: {
-                  title: 'Time',
+                  title: 'Casos confirmados',
+                  titleTextStyle: {
+                    color: '#FFF'
+                  },
+                  gridlines: {
+                    color: 'transparent'
+                  },
+                  textStyle: {
+                    color: '#FFF'
+                  }
                 },
                 vAxis: {
-                  title: 'Popularity',
+                  title: 'Número de casos',
+                  titleTextStyle: {
+                    color: '#FFF'
+                  },
+                  gridlines: {
+                    color: 'transparent'
+                  },
+                  textStyle: {
+                    color: '#FFF'
+                  }
                 },
                 backgroundColor: '#010915',
                 series: {
-                  1: { curveType: 'function' },
+                  0: {
+                      curveType: 'function',
+                      color:  '#f4b000'
+                    },
                 },
               }}
           />
