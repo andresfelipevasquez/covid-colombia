@@ -1,6 +1,6 @@
 import React from 'react';
-import {ReactComponent as FemaleIcon} from '../Icons/woman.svg';
-import {ReactComponent as MaleIcon} from '../Icons/man.svg';
+import {ReactComponent as FemaleIcon} from '../../Icons/woman.svg';
+import {ReactComponent as MaleIcon} from '../../Icons/man.svg';
 
 const TotalCasesByGender = ({data}) => {
 

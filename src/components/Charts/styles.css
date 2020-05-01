@@ -1,0 +1,13 @@
+.chart-container {
+    display: flex;
+    margin: 1rem 2rem 0 2rem;
+    justify-content: center;
+}
+
+.chart-deceased-by-day {
+    margin: 2rem;
+}
+
+.chart-cases-by-days {
+    margin: 2rem;
+}

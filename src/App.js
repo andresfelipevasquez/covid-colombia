@@ -1,8 +1,10 @@
 import React from 'react';
 import './App.css';
-import Map from './components/Map';
+import Map from './components/Map/Map';
 import Header from './components/Header';
-import Sumary from './components/Sumary';
+import Sumary from './components/Sumary/Sumary';
+import Charts from './components/Charts/ChartContainer';
+
 
 class App extends React.Component {
 
@@ -12,6 +14,7 @@ class App extends React.Component {
           <Header></Header>
           <Sumary></Sumary>
           <Map></Map>
+          <Charts></Charts>          
         </div>
       )
     }

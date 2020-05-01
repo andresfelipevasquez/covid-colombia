@@ -1,6 +1,6 @@
 import React from 'react';
 import useSwr from "swr";
-import { latLang }  from '../data/coordinates';
+import { latLang }  from '../../data/coordinates';
 import DeparmentTable from './DepartmentTable';
 import { Map as L, TileLayer, CircleMarker, Tooltip } from 'react-leaflet';
 

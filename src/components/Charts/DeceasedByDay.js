@@ -3,40 +3,39 @@ import useSwr from "swr";
 import Chart from 'react-google-charts';
 
 const fetcher = async (...args) => {
-  const res = await fetch(...args);
-  const response = await res.json();    
-  return response;
-};
+    const res = await fetch(...args);
+    const response = await res.json();    
+    return response;
+  };
 
-const Charts = () => {
-
-    const url_total_cases = "https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=fecha_reporte_web,COUNT(id_de_caso)&$group=fecha_reporte_web&$order=fecha_reporte_web%20ASC";
+const ChartDeceased = () => {
+    const url_total_cases = "https://www.datos.gov.co/resource/gt2j-8ykr.json?$select=fecha_de_muerte,COUNT(id_de_caso)&$group=fecha_de_muerte&$order=fecha_de_muerte%20ASC";
     const {data, error} = useSwr(url_total_cases, {fetcher});
-
+    
     if (error) return <div>failed to load</div>
 
-    let casesByDay =[]
+    let deceasedByDay =[];
     if(data) {
-      casesByDay.push([{ type: 'date', label: 'Day' }, 'Casos por día']);
-      let sumTotalCasesByDay = 0;
-      data.map(item =>{
-        sumTotalCasesByDay += Number(item.COUNT_id_de_caso);
-        casesByDay.push([new Date(item.fecha_reporte_web), sumTotalCasesByDay]);
-        return casesByDay;
-      });
+        deceasedByDay.push([{ type: 'date', label: 'Day' }, 'Fallecidos por día']);
+        let sumTotalByDay = 0;
+        data.map(item => {
+            if(!item.fecha_de_muerte.includes('  ')){
+                sumTotalByDay += Number(item.COUNT_id_de_caso);
+                deceasedByDay.push([new Date(item.fecha_de_muerte), sumTotalByDay]);
+            }            
+            return deceasedByDay;
+        });        
     }
-  
-    return (
-        <div className={"chart-cases-by-days"}>
+
+    return(
           <Chart
+            className="chart-deceased-by-day"
             chartType="LineChart"
             loader={<div>Loading Chart</div>}
-            data={casesByDay}
-            width="700px"
-            height="400px"          
+            data={deceasedByDay}
             options={{
                 hAxis: {
-                  title: 'Casos confirmados',
+                  title: 'Total de fallecidos',
                   titleTextStyle: {
                     color: '#FFF'
                   },
@@ -48,7 +47,7 @@ const Charts = () => {
                   }
                 },
                 vAxis: {
-                  title: 'Número de casos',
+                  title: 'Número de fallecidos',
                   titleTextStyle: {
                     color: '#FFF'
                   },
@@ -63,14 +62,12 @@ const Charts = () => {
                 series: {
                   0: {
                       curveType: 'function',
-                      color:  '#f4b000'
+                      color:  'red'
                     },
                 },
               }}
           />
-        </div>
-      );
-    
+    )
 }
 
-export default Charts;
+export default ChartDeceased;

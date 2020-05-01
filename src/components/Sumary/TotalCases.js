@@ -1,8 +1,8 @@
 import React from 'react';
 import useSwr from "swr";
-import Card from './Card';
+import Card from '../Card';
 import TotalCasesByGender from './TotalCasesByGender';
-import ToFormatNumber from '../services/ToFormatNumber';
+import ToFormatNumber from '../../services/ToFormatNumber';
 
 
 const fetcher = async (...args) => {
