@@ -11,3 +11,7 @@
 .chart-cases-by-days {
     margin: 2rem;
 }
+
+svg {
+    border-radius: 5px;
+}

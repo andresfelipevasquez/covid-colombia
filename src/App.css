@@ -23,10 +23,6 @@
   color: white !important;
 }
 
-.MuiTableContainer-root {
-  width: 30%;
-}
-
 .MuiTableContainer-root::-webkit-scrollbar {
   width: 4px;
   background-color: #404040

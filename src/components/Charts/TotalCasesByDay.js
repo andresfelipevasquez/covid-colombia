@@ -17,7 +17,7 @@ const TotalCasesByDay = () => {
 
     let casesByDay =[]
     if(data) {
-      casesByDay.push([{ type: 'date', label: 'Day' }, 'Casos por día']);
+      casesByDay.push([{ type: 'date', label: 'Day' }, 'Total de casos']);
       let sumTotalCasesByDay = 0;
       data.map(item => {
         sumTotalCasesByDay += Number(item.COUNT_id_de_caso);

@@ -10,7 +10,7 @@ const TotalCasesByGender = ({data}) => {
         margin: "1rem 2rem 1rem 2rem",
         textAlign: "center",
         color: "#aeaeae",
-        fontSize: "2.25vw",
+        fontSize: "2.2vw",
         fontWeight: "500"
     }
 
