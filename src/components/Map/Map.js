@@ -56,8 +56,7 @@ const Map = () => {
                   fillOpacity = {0.5}
                   stroke = {false}
                   color = {"#E60000"}
-                  // radius={50 * Math.log(city.properties.COUNT_id_de_caso / 1000)}
-                  className = {"corona-app-marker"}
+                  radius={(Math.log10(Number(city.properties.COUNT_id_de_caso)) + 2) * 1.5}
                 >
                   <Tooltip direction="right" offset={[-8, -2]} opacity={0.5}>
                     <span className="corona-app-tooltip">
