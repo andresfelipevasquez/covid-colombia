@@ -18,3 +18,6 @@ Contiene el consolidado de los casos positivos de Coronavirus COVID-19 en Colomb
 
 ## Fuente de datos
 - [Casos positivos de COVID-19 en Colombia](https://www.datos.gov.co/Salud-y-Protecci-n-Social/Casos-positivos-de-COVID-19-en-Colombia/gt2j-8ykr)
+
+## Demo
+![](assets/covid-19.gif)
