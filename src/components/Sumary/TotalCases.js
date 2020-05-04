@@ -26,11 +26,14 @@ const TotalCases = () => {
     if(data) {
         let gender = '';
         let totalCasesTemp = 0;
-        data.map(cases => { 
-            gender = cases.sexo.toUpperCase();
-            totalCasesTemp = Number(cases.COUNT_sexo);
-            totalCases += totalCasesTemp;
-            totalCasesByGender[gender] = totalCasesByGender[gender] + totalCasesTemp;
+        data.map(cases => {
+            // Validación para no incluir falsos positivos
+            if(!cases.sexo.includes('  ')){
+                gender = cases.sexo.toUpperCase();
+                totalCasesTemp = Number(cases.COUNT_sexo);
+                totalCases += totalCasesTemp;
+                totalCasesByGender[gender] = totalCasesByGender[gender] + totalCasesTemp;
+            }
             return {
                 totalCasesByGender
             }

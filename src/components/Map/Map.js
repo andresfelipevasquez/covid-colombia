@@ -16,15 +16,14 @@ const Map = () => {
     if (error) return <div>failed to load</div>
       
 
-    let geoJson = {};
     let feature = [];
     if(data) {
       let name = '';
-      geoJson = {
-        type: 'FeatureCollection',
-        features: data.map((departamento = {}) => {
-          name = (departamento.departamento).toUpperCase();
-          return {
+      data.map((departamento = {}) => {
+        name = (departamento.departamento).toUpperCase();        
+        // Validación para no incluir falsos positivos
+        if(!name.includes('  ')){
+          feature.push({
             type: 'Feature',
             properties: {
               ...departamento,
@@ -33,12 +32,12 @@ const Map = () => {
               type: 'Point',
               coordinates: latLang[name]
             }
-          }
-        })
-      }
-      feature = geoJson.features;      
+          })
+        }
+        return feature;     
+      })      
     }
-    
+
     return (
       <div className="map-container">
         <DeparmentTable rows={data}></DeparmentTable>
