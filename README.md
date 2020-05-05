@@ -15,6 +15,8 @@ Contiene el consolidado de los casos positivos de Coronavirus COVID-19 en Colomb
 
 ## Tecnología
 - React
+- [React-leaflet](https://react-leaflet.js.org/)
+- [React Google Charts](https://react-google-charts.com/)
 
 ## Fuente de datos
 - [Casos positivos de COVID-19 en Colombia](https://www.datos.gov.co/Salud-y-Protecci-n-Social/Casos-positivos-de-COVID-19-en-Colombia/gt2j-8ykr)

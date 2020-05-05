@@ -19,7 +19,7 @@ const ChartDeceased = () => {
         deceasedByDay.push([{ type: 'date', label: 'Day' }, 'Total de fallecidos']);
         let sumTotalByDay = 0;
         data.map(item => {
-            if(!item.fecha_de_muerte.includes('  ')){
+            if(item.hasOwnProperty('fecha_de_muerte') && !item.fecha_de_muerte.includes('  ')){
                 sumTotalByDay += Number(item.COUNT_id_de_caso);
                 deceasedByDay.push([new Date(item.fecha_de_muerte), sumTotalByDay]);
             }            
