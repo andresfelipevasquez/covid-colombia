@@ -22,10 +22,12 @@ const PatientsStatus = () => {
     if (error) return <div>failed to load</div>
 
     if(data) {
+        let hasPropertyAtention = false;
         data.map(items => {
-            if(items.atenci_n.toUpperCase() === labelRecuperate){
+            hasPropertyAtention = items.hasOwnProperty('atenci_n');
+            if(hasPropertyAtention && items.atenci_n.toUpperCase() === labelRecuperate){
                 statusData[labelRecuperate] = items.COUNT_atenci_n;
-            } else if(items.atenci_n.toUpperCase() === labelDeceased){
+            } else if(hasPropertyAtention && items.atenci_n.toUpperCase() === labelDeceased){
                 statusData[labelDeceased] = items.COUNT_atenci_n;
             }
             return statusData;
